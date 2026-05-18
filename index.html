@@ -1,342 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Patrick's Services</title>
-
-<style>
-:root {
-    --bg-main: #0a0a0a;
-    --bg-section: #111111;
-    --bg-card: #161616;
-    --bg-header: #050505;
-    --text-main: #f5f5f5;
-    --text-muted: #9a9a9a;
-    --accent: #ffffff;
-    --border: #222222;
-}
-
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
-body {
-    margin: 0;
-    font-family: system-ui, -apple-system, Segoe UI, sans-serif;
-    background: var(--bg-main);
-    color: var(--text-main);
-    line-height: 1.6;
-}
-
-/* HEADER */
-header {
-    background: var(--bg-header);
-    border-bottom: 1px solid var(--border);
-    padding: 1.2rem 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo {
-    font-weight: 900;
-    font-size: 1.2rem;
-    letter-spacing: 0.5px;
-}
-
-.est-btn {
-    font-weight: 600;
-    color: var(--accent);
-    text-decoration: none;
-    transition: .3s;
-}
-
-.est-btn:hover {
-    opacity: .7;
-}
-
-/* HERO */
-.hero {
-    padding: 6rem 10%;
-    background:
-        linear-gradient(rgba(0,0,0,.85), rgba(0,0,0,.85)),
-        url("https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1170&auto=format&fit=crop");
-    background-size: cover;
-    background-position: center;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    max-width: 850px;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.15rem;
-    max-width: 650px;
-    color: var(--text-muted);
-}
-
-.btn {
-    display: inline-block;
-    margin-top: 2.2rem;
-    padding: 14px 36px;
-    background: var(--accent);
-    color: black;
-    text-decoration: none;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    transition: .3s;
-}
-
-.btn:hover {
-    box-shadow: 0 0 20px rgba(255,255,255,.3);
-}
-
-/* SECTIONS */
-.section {
-    padding: 5rem 10%;
-    border-top: 1px solid var(--border);
-}
-
-.section.alt {
-    background: var(--bg-section);
-}
-
-.section h2 {
-    font-size: 2.1rem;
-    margin-bottom: 1rem;
-}
-
-/* SERVICES */
-.services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2.5rem;
-    margin-top: 3rem;
-}
-
-.service {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    overflow: hidden;
-    transition: .3s ease;
-    box-shadow: 0 10px 25px rgba(0,0,0,.4);
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp .8s forwards;
-}
-
-.service:nth-child(2) { animation-delay: .2s; }
-.service:nth-child(3) { animation-delay: .4s; }
-
-.service:hover {
-    transform: translateY(-6px);
-    border-color: #333;
-}
-
-.service img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.service-content {
-    padding: 1.8rem;
-}
-
-.service h3 {
-    margin-top: 0;
-    margin-bottom: 0.6rem;
-}
-
-.service p {
-    color: var(--text-muted);
-}
-
-/* SERVICE AREA */
-.area {
-    text-align: center;
-    font-size: 1.3rem;
-    color: var(--text-muted);
-    margin-top: 1.5rem;
-}
-
-/* IMAGE BAND */
-.image-band {
-    height: 300px;
-    background:
-        linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
-        url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2070");
-    background-size: cover;
-    background-position: center;
-}
-
-/* CONTACT */
-.contact {
-    background: var(--bg-header);
-    text-align: center;
-    padding: 5rem 10%;
-}
-
-.contact p {
-    color: var(--text-muted);
-    line-height: 1.8;
-}
-
-.contact a {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 700;
-}
-
-/* FOOTER */
-footer {
-    background: #000;
-    border-top: 1px solid var(--border);
-    padding: 2rem;
-    text-align: center;
-    font-size: 0.85rem;
-    color: #6b7280;
-}
-
-/* ANIMATION */
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2.2rem; }
-    .section { padding: 3rem 7%; }
-}
-
-/* LOCATIONS */
-.locations {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2rem;
-    margin-top: 1rem;
-}
-
-.location-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    padding: 2rem;
-    transition: .3s ease;
-    box-shadow: 0 10px 25px rgba(0,0,0,.4);
-}
-
-.location-card:hover {
-    transform: translateY(-6px);
-    border-color: #333;
-}
-
-.location-card h3 {
-    margin-top: 0;
-    margin-bottom: .5rem;
-}
-
-.location-card p {
-    color: var(--text-muted);
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patrick | Young Web Developer</title>
+  <style>
+    :root { --bg:#0b1020; --card:#131a31; --text:#f4f7ff; --muted:#b7c2e0; --accent:#7aa2ff; }
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,sans-serif;background:linear-gradient(180deg,#0b1020,#0f1630);color:var(--text)}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 8%;position:sticky;top:0;background:#0b1020dd;backdrop-filter:blur(8px)}
+    nav a{color:var(--text);text-decoration:none;margin-left:1rem;font-weight:600}
+    .hero{padding:5rem 8% 3rem;display:grid;gap:1.5rem}
+    .hero h1{font-size:clamp(2rem,4vw,3.25rem);margin:0}
+    .hero p{max-width:760px;color:var(--muted);font-size:1.05rem}
+    .cards{padding:1rem 8% 4rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+    .card{background:var(--card);border:1px solid #26335e;border-radius:14px;padding:1rem}
+    .gallery{padding:0 8% 5rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .grid img{width:100%;height:200px;object-fit:cover;border-radius:12px;border:1px solid #2d3e72}
+    footer{padding:2rem 8%;border-top:1px solid #26335e;color:var(--muted)}
+    .btn{display:inline-block;background:var(--accent);color:#0b1020;padding:.7rem 1rem;border-radius:10px;text-decoration:none;font-weight:700}
+  </style>
 </head>
-
 <body>
-
-<header>
-    <div class="logo">Patrick's Services</div>
-    <a href="#contact" class="est-btn">Free Estimate</a>
-</header>
-
-<section class="hero">
-    <h1>Residential Property Care in Southeastern Connecticut</h1>
-    <p>
-        Snow removal, lawn care, and seasonal cleanup for homes in Waterford,
-        New London, and Norwich.
-    </p>
-    <a href="#contact" class="btn">Request a Free Estimate</a>
-</section>
-
-<section class="section alt">
-    <h2>Service Area</h2>
-    <p style="color: var(--text-muted); margin-bottom: 2.5rem;">
-        Proudly serving homeowners throughout Southeastern Connecticut.
-    </p>
-
-    <div class="locations">
-        <div class="location-card">
-            <h3>Waterford</h3>
-            <p>Residential snow removal and lawn care services.</p>
-        </div>
-
-        <div class="location-card">
-            <h3>New London</h3>
-            <p>Reliable seasonal cleanup and property maintenance.</p>
-        </div>
-
-        <div class="location-card">
-            <h3>Norwich</h3>
-            <p>Professional driveway clearing and yard services.</p>
-        </div>
+  <nav>
+    <strong>Patrick.dev</strong>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="my-websites.html">My Websites</a>
+      <a href="about-me.html">About Me</a>
+      <a href="my-socials.html">My Socials</a>
     </div>
-</section>
+  </nav>
 
-<section class="section">
-    <h2>Our Services</h2>
+  <section class="hero">
+    <h1>Hi, I'm Patrick — a 15-year-old developer building websites.</h1>
+    <p>I design and build modern websites with clean layouts, responsive design, and fast performance. This is my portfolio bio site where you can see my work, learn about me, and find my socials.</p>
+    <div><a class="btn" href="my-websites.html">View My Work</a></div>
+  </section>
 
-    <div class="services">
+  <section class="cards">
+    <article class="card"><h3>What I Build</h3><p>Landing pages, portfolio sites, and custom small business websites.</p></article>
+    <article class="card"><h3>My Goal</h3><p>Keep improving every project and become a top web developer.</p></article>
+    <article class="card"><h3>Tech I Use</h3><p>HTML, CSS, JavaScript, and tools for modern frontend development.</p></article>
+  </section>
 
-        <div class="service">
-            <img src="https://media.istockphoto.com/id/2220638292/photo/winter-house-and-driveway-after-snow-storm.webp?a=1&b=1&s=612x612&w=0&k=20&c=74UbjnFGue3HmxLwPrZwpVTT47KoD0zvaaNwisWeuUQ=" alt="Clean driveway with snow around it">
-            <div class="service-content">
-                <h3>Snow Removal</h3>
-                <p>Driveways, walkways, and residential clearing.</p>
-            </div>
-        </div>
-
-        <div class="service">
-            <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?q=80&w=1332&auto=format&fit=crop" alt="Freshly cut green lawn">
-            <div class="service-content">
-                <h3>Lawn Care</h3>
-                <p>Routine mowing and property maintenance.</p>
-            </div>
-        </div>
-
-        <div class="service">
-            <img src="https://plus.unsplash.com/premium_photo-1759493791619-b379a2400cc5?q=80&w=1074&auto=format&fit=crop" alt="Pile of leaves on clean yard in fall">
-            <div class="service-content">
-                <h3>Seasonal Cleanup</h3>
-                <p>Leaf removal and full yard cleanups.</p>
-            </div>
-        </div>
-
+  <section class="gallery">
+    <h2>Pictures</h2>
+    <p style="color:var(--muted)">You can replace these with your own uploads later.</p>
+    <div class="grid">
+      <img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=900&q=80" alt="Code editor on screen" />
+      <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80" alt="Laptop and workspace" />
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80" alt="Programming setup" />
     </div>
-</section>
+  </section>
 
-<div class="image-band"></div>
-
-<section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p>
-        Call or Text Anytime<br><br>
-        Phone: <a href="tel:18607727035">860-772-7035</a><br>
-        Email: <a href="mailto:patrickmango49@gmail.com">patrickmango49@gmail.com</a><br>
-        Email: <a href="mailto:patrickmango499@outlook.com">patrickmango499@outlook.com</a>
-    </p>
-</section>
-
-<footer>
-© 2026 Patrick's Services · All Rights Reserved
-</footer>
-
+  <footer>© 2026 Patrick.dev — Built by a young developer.</footer>
 </body>
 </html>
